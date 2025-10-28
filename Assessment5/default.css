@@ -137,8 +137,16 @@ footer a {
 }
 
 .storie-right {
-    text-align: left;
     grid-column: 7 / 13;
+}
+
+.storie-right p {
+    text-align: left;
+}
+
+.storie-right h2 {
+    text-align: left;
+    font-size: 2em;
 }
 
 .im1 {
