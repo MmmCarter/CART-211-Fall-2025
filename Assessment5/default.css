@@ -103,6 +103,15 @@ nav a:hover {
     color: darkgray;
 }
 
+.menuI {
+    text-align: right;
+}
+
+.menuI_active {
+    text-align: right;
+    color: gray;
+}
+
 section {
     margin-bottom: 30px;
     text-align: justify;
