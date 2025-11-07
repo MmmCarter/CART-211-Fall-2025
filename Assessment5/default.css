@@ -195,12 +195,12 @@ footer a {
 
 .im3 {
     grid-column: 7 / 13;
-    grid-row: 1 / 6;
+    grid-row: 1 / 5;
 }
 
 .im4 {
     grid-column: 1 / 4;
-    grid-row: 3 / 6;
+    grid-row: 3 / 5;
 }
 
 .im5 {
@@ -259,6 +259,33 @@ article figure figcaption {
 header img {
     width: 100%;
     height: 100%;
+}
+
+.hover-text {
+    opacity: 0;
+    position: absolute;
+    bottom: 30px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 8px;
+    border-radius: 10px;
+    color: white;
+    transition: opacity 0.3s ease;
+}
+
+.photos figure:hover .hover-text {
+    display: block;
+    opacity: 1;
+}
+
+.photos figure img {
+    transition: all 0.3s ease;
+}
+
+.photos figure:hover img {
+    transform: scale(1.05);
+    opacity: 0.9;
+    filter: blur(2px);
 }
 
 .social {
