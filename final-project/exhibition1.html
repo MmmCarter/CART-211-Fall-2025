@@ -23,10 +23,7 @@
 
 </head>
 
-<body class="home">
-    <div class="scan-lines"></div>
-    <div class="data-stream"></div>
-
+<body>
     <main class="container">
         <header class="museum-header">
             <h1 class="museum-title">Museum of the Watched</h1>
@@ -50,37 +47,9 @@
             </div>
 
         </div>
-
-        <div class="visitor-counter">
-            <span>Today's visitor: <span id="counter">0000</span></span>
-        </div>
     </main>
 
-    <script src="js/script.js"></script>
-    <script>
-        sessionStorage.setItem('entryTime', new Date().toISOString());
 
-        document.getElementById('agree-btn-1').addEventListener('click', enterMuseum);
-        document.getElementById('agree-btn-2').addEventListener('click', enterMuseum);
-
-        function enterMuseum() {
-
-            recordInteraction('consent_given');
-            window.location.href = 'atrium.html';
-        }
-
-        setInterval(() => {
-            const counter = document.getElementById('counter');
-            let count = parseInt(counter.textContent);
-            counter.textContent = String(count + 1).padStart(4, '0');
-        }, 3000);
-    </script>
-
-    <!--Footer-->
-    <footer>
-        <small><em>© This website was created as part of a student peoject. All content and design are copyright
-                Haolei Ma, student, 2025</em></small>
-    </footer>
 
 
 </body>
