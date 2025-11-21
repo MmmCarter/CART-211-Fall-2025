@@ -184,6 +184,32 @@
     color: white;
 }
 
+.exhibition-header {
+    position: relative;
+    width: 100%;
+    height: 200px;
+}
+
+.ex-title1 {
+    position: absolute;
+    top: -80px;
+    left: 20px;
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.ex-title2 {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 48px;
+    font-weight: 800;
+    margin: 0;
+    text-align: center;
+}
+
 footer {
     margin-top: 20px;
     min-height: 30px;
