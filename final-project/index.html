@@ -52,8 +52,10 @@
 
 
             <div class="agreement-buttons">
-                <button id="agree-btn-1" class="agree-btn">I Agree</button>
-                <button id="agree-btn-2" class="agree-btn">I Agree</button>
+                <a href="exhibition1.html">
+                    <button id="agree-btn-1" class="agree-btn">I Agree</button></a>
+                <a href="exhibition1.html">
+                    <button id="agree-btn-2" class="agree-btn">I Agree</button></a>
             </div>
 
         </div>
@@ -63,18 +65,8 @@
         </div>
     </main>
 
-    <script src="js/script.js"></script>
     <script>
         sessionStorage.setItem('entryTime', new Date().toISOString());
-
-        document.getElementById('agree-btn-1').addEventListener('click', enterMuseum);
-        document.getElementById('agree-btn-2').addEventListener('click', enterMuseum);
-
-        function enterMuseum() {
-
-            recordInteraction('consent_given');
-            window.location.href = 'atrium.html';
-        }
 
         setInterval(() => {
             const counter = document.getElementById('counter');
