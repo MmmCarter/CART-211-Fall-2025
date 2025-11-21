@@ -24,6 +24,10 @@
 </head>
 
 <body class="home">
+    <div class="matrix-bg">
+        <div class="matrix-layer" id="layer-back"></div>
+        <div class="matrix-layer" id="layer-front"></div>
+    </div>
     <div class="scan-lines"></div>
     <div class="data-stream"></div>
 
@@ -74,6 +78,39 @@
             let count = parseInt(counter.textContent);
             counter.textContent = String(count + 1).padStart(4, '0');
         }, 3000);
+
+        const chars = "アイウカキクケコｱｲｳｴｵ012345789ABCDEFGHIJKLMNOPQRSTUVXYZ#$%&*+=-";
+
+
+        function createRain(layer, count, speedMin, speedMax) {
+            for (let i = 0; i < count; i++) {
+                const col = document.createElement("div");
+                col.classList.add("matrix-column");
+
+
+                let length = Math.floor(Math.random() * 20) + 10;
+                let stream = "";
+                for (let j = 0; j < length; j++) {
+                    stream += chars[Math.floor(Math.random() * chars.length)] + "\n";
+                }
+                col.textContent = stream;
+
+
+                col.style.left = `${Math.random() * 100}vw`;
+
+
+                const duration = Math.random() * (speedMax - speedMin) + speedMin;
+                col.style.animation = `rain ${duration}s linear infinite`;
+                col.style.animationDelay = `${Math.random() * 5}s`;
+
+                layer.appendChild(col);
+            }
+        }
+
+        createRain(document.getElementById("layer-back"), 25, 9, 14);
+
+        createRain(document.getElementById("layer-front"), 35, 4, 8);
+
     </script>
 
     <!--Footer-->
