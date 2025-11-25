@@ -91,7 +91,13 @@
 
 
 
-        const chars = "アイウカキクケコｱｲｳｴｵ012345789ABCDEFGHIJKLMNOPQRSTUVXYZ#$%&*+=-";
+        const letters = "アイウカキクケコｱｲｳｴｵ012345789ABCDEFGHIJKLMNOPQRSTUVXYZ#$%&*+=-";
+        const names = ["BRADLEY J. TODD", "AHMAD ALRAZZAZ", "SOPHIA ANDTBACKA", "YELENA ARAKELIAN", "PHILIPPE BEAUCHEMIN", "EMILE BEDARD", "DYNA BENAZIZA", "GIA THIEN BUI", "ALEXANDRE CHARDON", "LANNA CHECK", "JAKE HAYDUK", "ASHMITHA KANAGIAH", "AGUSTIN LEE", "BENJAMIN AMCKNOFSKY", "CATERINA MARTIN", "KAI MERCIER", "DANIEL MICHUROV", "TASHA OEST O LEARY", "MATIA PAKI", "YA XUAN PANG", "ANTHONY PATIENT", "MARC-ANTOINE PILLIOT", "LUCIE SOUSSANA", "IMA WILLIAMS"];
+
+        const chars = [
+            ...letters,
+            ...names
+        ]
 
         const secretMessages = [
             "YOU ARE BEING WATCHED",
@@ -131,8 +137,8 @@
             }
         }
 
-        createRain(backLayer, 60, 10, 15);
-        createRain(frontLayer, 90, 6, 10);
+        createRain(backLayer, 60, 10, 30);
+        createRain(frontLayer, 90, 6, 30);
 
         document.addEventListener("mousemove", e => {
             const x = e.clientX;
