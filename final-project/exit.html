@@ -16,7 +16,7 @@
     <meta name="author" content="Haolei Ma">
     <meta name="copyright" content="© Copyright Haolei Ma, student project, 2025">
 
-    <title>Museum of the Watched - Entrance</title>
+    <title>Museum of the Watched - Exit</title>
 
     <!-- External Stylesheet -->
     <link rel="stylesheet" href="default.css">
@@ -35,31 +35,30 @@
         <div class="matrix-layer" id="layer-front"></div>
     </div>
 
-    <div class="secret-msg" id="secretMsg"></div>
-
     <div class="scan-lines"></div>
     <div class="data-stream"></div>
 
     <main class="container">
-        <header class="museum-header">
-            <h1 class="museum-title">Museum of the Watched</h1>
+        <header class="exit-header">
+            <h1 class="exit-title">Museum of the Watched</h1>
         </header>
 
         <div class="consent-agreement">
             <div class="agreement-text">
-                <p>Welcome to the Museum of the Watched</p>
-                <p>By entering this museum, you consent to our collection and processing of your behavioral data for
-                    artistic and analytical purposes.</p>
-                <p>Every click, dwell time, scroll action, and interactive choice you make will become part of the
-                    exhibit.
-                </p>
-                <p class="small-text">* This consent is irrevocable. Closing this page constitutes your agreement.</p>
+                <p>Thank you for your careful viewing!</p>
+                <p>We hope this website will help you gain a basic understanding of data surveillance and leaks. Once
+                    you recognize the
+                    seriousness of these issues, you can begin learning how to properly protect your data and
+                    information.</p>
+                <p id="special">But for now, please leave your information here.</p>
             </div>
 
 
             <div class="exit-buttons">
                 <a href="index.html">
-                    <button id="exit-btn" class="exit-btn">EXIT</button></a>
+                    <button id="exit-btn1" class="exit-btn">REFUSE</button></a>
+                <a href="index.html">
+                    <button id="exit-btn2" class="exit-btn">EXIT</button></a>
             </div>
 
         </div>
@@ -98,17 +97,6 @@
             ...letters,
             ...names
         ]
-
-        const secretMessages = [
-            "YOU ARE BEING WATCHED",
-            "DATA LOGGED",
-            "CONSENT RECORDED",
-            "SYSTEM MONITORING YOU",
-            "TRACKING BEHAVIOR",
-            "ANALYSIS IN PROGRESS",
-            "USER ID: UNKNOWN",
-            "███ ACCESS GRANTED ███"
-        ];
 
         const backLayer = document.getElementById("layer-back");
         const frontLayer = document.getElementById("layer-front");
@@ -160,16 +148,6 @@
                 }
             });
         });
-
-        function flashSecretMessage() {
-            const msg = secretMessages[Math.floor(Math.random() * secretMessages.length)];
-            secretMsg.textContent = msg;
-            secretMsg.style.opacity = 1;
-
-            setTimeout(() => secretMsg.style.opacity = 0, 300);
-        }
-
-        setInterval(flashSecretMessage, 6000 + Math.random() * 4000);
 
         let clicks = 0;
         let startTime = Date.now();

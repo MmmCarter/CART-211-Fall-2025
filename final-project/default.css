@@ -337,6 +337,21 @@ media-box:hover {
     transform: translateY(-3px);
 }
 
+.exit-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.exit-title {
+    font-size: 3rem;
+    font-weight: 300;
+    letter-spacing: 0.5rem;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    color: red;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
 .exit-buttons {
     margin-top: 2rem;
     display: flex;
@@ -346,8 +361,8 @@ media-box:hover {
 
 .exit-btn {
     background: transparent;
-    border: 1px solid #9f0505;
-    color: #9f0505;
+    border: 1px solid red;
+    color: red;
     padding: 1rem 2rem;
     font-size: 1rem;
     cursor: pointer;
@@ -357,6 +372,11 @@ media-box:hover {
 .exit-btn:hover {
     background: rgba(255, 0, 0, 0.1);
     box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+}
+
+#special {
+    color: #ff0000;
+    font-weight: bold;
 }
 
 footer {
