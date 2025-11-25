@@ -33,23 +33,20 @@
     <main class="container">
         <header class="exhibition-header">
             <h2 class="ex-title1">The Museum of the Watched</h2>
-            <h1 class="ex-title2">PUBLIC EYE</h1>
+            <h1 class="ex-title2">HIDDEN CAMERA</h1>
         </header>
 
         <section class="content-section">
 
             <div class="media-column">
-                <div class="media-box"><video id="camera" autoplay playsinline></video></div>
+                <div class="media-box"><video id="camera" autoplay playsinline muted></video></div>
             </div>
 
             <div class="text-column">
-                <h3>Stop hiding—you've been spotted</h3>
-                <p>
-                    Surveillance cameras are ubiquitous worldwide, with estimates reaching billions in number. On
-                    average, roughly one camera corresponds to every eight people.</p>
-                <p>These are only the cameras that can be detected by the human eye—as for
-                    those invisible - who knows?
-                </p>
+                <h3>Got you!</h3>
+                <p>When you visit certain websites, your portrait is instantly captured (Even if the website doesn't ask
+                    you to turn on your camera, the other party can still "remotely activate" it for you over
+                    the network.).</p>
 
                 <a href="exit.html" class="continue-btn">CONTINUE</a>
             </div>
@@ -85,14 +82,19 @@
 
         const video = document.getElementById("camera");
 
-        navigator.mediaDevices.getUserMedia({ video: true, audio: false })
-            .then(stream => {
-                video.srcObject = stream;
-            })
-            .catch(err => {
-                console.error("Unable to access the camera: ", err);
-                alert("Please allow access to your camera to display the video!");
-            });
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({ video: { facingMode: "user" }, audio: false })
+                .then(stream => {
+                    video.srcObject = stream;
+                    video.onloadedmetadata = () => video.play();
+                })
+                .catch(err => {
+                    console.error("Unable to access the camera: ", err);
+                    alert("Please allow access to your camera to display the video!");
+                });
+        } else {
+            alert("Your browser does not support camera access.");
+        }
 
     </script>
 
