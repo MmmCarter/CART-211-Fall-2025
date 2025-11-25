@@ -16,38 +16,68 @@
     <meta name="author" content="Haolei Ma">
     <meta name="copyright" content="© Copyright Haolei Ma, student project, 2025">
 
-    <title>Museum of the Watched - Entrance</title>
+    <title>Museum of the Watched - Hall 1</title>
 
     <!-- External Stylesheet -->
     <link rel="stylesheet" href="default.css">
 
 </head>
 
-<body class="home">
+<body class="hall">
 
     <main class="container">
         <header class="exhibition-header">
-            <h2 class="ex-title1">EX1</h2>
-            <h1 class="ex-title2">EX2</h1>
+            <h2 class="ex-title1">The Museum of the Watched</h2>
+            <h1 class="ex-title2">Public Eye</h1>
         </header>
 
-        <div class="consent-agreement">
-            <div class="agreement-text">
-                <p>Welcome to the Museum of the Watched</p>
-                <p>By entering this museum, you consent to our collection and processing of your behavioral data for
-                    artistic and analytical purposes.</p>
-                <p>Every click, dwell time, scroll action, and interactive choice you make will become part of the
-                    exhibit.
-                </p>
-                <p class="small-text">* This consent is irrevocable. Closing this page constitutes your agreement.</p>
+        <section class="content-section">
+
+            <div class="media-column">
+                <div class="media-box"><img src="assets/image/ex1/1.gif" alt="booth1"></div>
+                <div class="media-box"></div>
+                <div class="media-box"></div>
             </div>
 
-        </div>
+            <div class="text-column">
+                <h3>Your Title Here</h3>
+                <p>
+                    Add any description text here. This text area is designed to fit long or short
+                    paragraphs and will align on the right side of the layout.
+                </p>
+
+                <a href="exhibition2.html" class="continue-btn">CONTINUE</a>
+            </div>
+
+        </section>
+
+
 
         <div class="visitor-counter">
             <span>Today's visitor: <span id="counter">0000</span></span>
         </div>
     </main>
+
+    <script>
+        let count = sessionStorage.getItem("visitorCount");
+
+        if (!count) {
+            count = 0;
+        } else {
+            count = parseInt(count);
+        }
+
+        const counter = document.getElementById("counter");
+        counter.textContent = String(count).padStart(4, '0');
+
+        setInterval(() => {
+            count++;
+            counter.textContent = String(count).padStart(4, '0');
+
+            sessionStorage.setItem("visitorCount", count);
+
+        }, 3000);
+    </script>
 
     <!--Footer-->
     <footer>

@@ -66,13 +66,26 @@
     </main>
 
     <script>
-        sessionStorage.setItem('entryTime', new Date().toISOString());
+        let count = sessionStorage.getItem("visitorCount");
+
+        if (!count) {
+            count = 0;
+        } else {
+            count = parseInt(count);
+        }
+
+        const counter = document.getElementById("counter");
+        counter.textContent = String(count).padStart(4, '0');
 
         setInterval(() => {
-            const counter = document.getElementById('counter');
-            let count = parseInt(counter.textContent);
-            counter.textContent = String(count + 1).padStart(4, '0');
+            count++;
+            counter.textContent = String(count).padStart(4, '0');
+
+            sessionStorage.setItem("visitorCount", count);
+
         }, 3000);
+
+
 
         const chars = "アイウカキクケコｱｲｳｴｵ012345789ABCDEFGHIJKLMNOPQRSTUVXYZ#$%&*+=-";
 
