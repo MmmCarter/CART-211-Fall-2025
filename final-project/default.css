@@ -241,19 +241,26 @@ body.hall {
 .media-column {
     flex: 1 1 60%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
 }
 
 .media-box {
     width: 100%;
-    height: 180px;
+    aspect-ratio: 1 / 1;
     background-color: rgba(255, 255, 255, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(3px);
+    overflow: hidden;
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 1s forwards;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+media-box:hover {
+    transform: translateY(0) scale(1.03);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
 }
 
 .media-box:nth-child(1) {
@@ -284,7 +291,12 @@ body.hall {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 4px;
+    transition: transform 0.35s ease;
+}
+
+.media-box:hover img,
+.media-box:hover video {
+    transform: scale(1.1);
 }
 
 .text-column {
@@ -302,6 +314,8 @@ body.hall {
 .text-column p {
     line-height: 1.6;
     font-size: clamp(0.9rem, 2.5vw, 1rem);
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .continue-btn {
@@ -321,6 +335,28 @@ body.hall {
 .continue-btn:hover {
     background-color: #ddd;
     transform: translateY(-3px);
+}
+
+.exit-buttons {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.exit-btn {
+    background: transparent;
+    border: 1px solid #9f0505;
+    color: #9f0505;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.exit-btn:hover {
+    background: rgba(255, 0, 0, 0.1);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
 }
 
 footer {
@@ -350,7 +386,7 @@ footer a {
     }
 
     .media-box {
-        height: 120px;
+        aspect-ratio: 4 / 3;
     }
 
     .text-column h3 {
